@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IECP Boiçucanga</title>
+  <meta name="description" content="IECP Boiçucanga - Igreja Evangélica Cristã Presbiteriana. Jesus restaurando vidas. Cultos, ministérios, agenda, localização e mais.">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="images/iecp.jpg" type="image/jpeg">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #000;
+      color: white;
+      padding: 1rem 0;
+    }
+    .logo img {
+      max-height: 60px;
+    }
+    .btn-inicio {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-inicio:hover {
+      background-color: black;
+      color: white;
+    }
+    .fixed-inicio {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .hero {
+      height: 100vh;
+      background-image: url('images/tema2026.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 90%;
+      padding: 1rem;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    .hero h2 {
+      font-size: 1.5rem;
+    }
+    .rounded-circle {
+      object-fit: cover;
+    }
+    .carousel-inner img {
+      max-height: max-content;
+      object-fit: contain;
+      background-color: #000;
+    }
+
+    /* Estilo do botão hambúrguer branco */
+    .navbar-toggler {
+      border-color: black;
+    }
+
+    /*       border-color: white; /* borda branca */
+
+    .navbar-toggler-icon {
+      background-image: none; /* remove o ícone padrão */
+      position: relative;
+      width: 24px;
+      height: 18px;
+      display: inline-block;
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after,
+    .navbar-toggler-icon div {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 3px;
+      background-color: white; /* linhas brancas */
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    .navbar-toggler-icon::before {
+      top: 0;
+    }
+
+    .navbar-toggler-icon div {
+      top: 7.5px;
+    }
+
+    .navbar-toggler-icon::after {
+      bottom: 0;
+    }
+  </style>
+</head>
+<body id="top">
+
+<!-- Header -->
+<header>
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center logo">
+      <img src="images/iecp.jpg" alt="Logo IECP" class="me-2" style="max-height: 60px;">
+      <span class="fw-bold fs-5 text-white">IECP</span>
+    </div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+        <!-- Ano -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="index.html">Ano Profético</a>
+        </li>
+
+        <!-- Sobre -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="sobre.html">Sobre</a>
+        </li>
+
+        <!-- Pastores -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="pastoresDropdown" role="button" data-bs-toggle="dropdown">
+            Pastores
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#pastores">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#pastores">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#pastores">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Ministérios -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="ministeriosDropdown" role="button" data-bs-toggle="dropdown">
+            Ministérios
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#ministerios">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#ministerios">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#ministerios">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Dízimos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="dizimosDropdown" role="button" data-bs-toggle="dropdown">
+            Contribuição
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#dizimos">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#dizimos">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#dizimos">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Agenda -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="agendaDropdown" role="button" data-bs-toggle="dropdown">
+            Agenda
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#agenda">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#agenda">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#agenda">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Eventos -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="eventos.html">Eventos</a>
+        </li>
+
+        <!-- Fotos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="agendaDropdown" role="button" data-bs-toggle="dropdown">
+            Fotos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#fotos">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#fotos">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#fotos">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Fale Conosco -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="sobre.html">Fale Conosco</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  </nav>
+</header>
+
+<!-- Botão Início Fixo -->
+<a href="#top" class="btn-inicio fixed-inicio" aria-label="Voltar ao início">Início</a>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content" data-aos="fade-up">
+    <h1>IECP Boiçucanga</h1>
+    <h2>2026, É Ano De Edificar e Consolidar</h2>
+  </div>
+</section>
+
+<!-- Pastores -->
+<section id="pastores" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">Nossos Pastores</h2>
+    <div class="row mt-4">
+     <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <img src="images/pr.elinaldo.jpeg" alt="Pr. Elinaldo" class="rounded-circle mb-3" width="150" height="150">
+        <h5>Pr. Elinaldo</h5>
+        <p>Pastor</p>
+     </div>
+     <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <img src="images/pra.alzenir.jpeg" alt="Pra. Alzenir" class="rounded-circle mb-3" width="150" height="150">
+        <h5>Pra. Alzenir</h5>
+        <p>Pastora</p>
+     </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ministérios -->
+  <section id="ministerios" class="py-5">
+      <div class="container text-center">
+      <h2 data-aos="fade-up">Ministérios</h2>
+            <p data-aos="fade-up" data-aos-delay="50">Conheça nossos ministérios e como participar.</>
+              <div class="row mt-4">
+                  <div class="col-md-4" data-aos="zoom-in">
+                    <div class="card shadow-sm h-100">
+                  <img src="images/louvor.jpeg" class="card-img-top" alt="Ministério de Louvor">
+                <div class="card-body">
+              <h5 class="card-title">Louvor</h>
+            <p class="card-text">O Ministério de Louvor tem como missão conduzir a igreja à presença de Deus por meio da música. Com excelência e coração voltado à adoração, buscamos criar ambientes onde o Espírito Santo possa agir livremente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card shadow-sm h-100">
+          <img src="images/kids.jpeg" class="card-img-top" alt="Ministério Infantil">
+          <div class="card-body">
+            <h5 class="card-title">Infantil</h5>
+            <p class="card-text">Nosso Ministério Infantil tem o compromisso de ensinar a Palavra de Deus às crianças com amor, criatividade e diversão. Queremos que os pequenos cresçam conhecendo e amando Jesus desde cedo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
+        <div class="card shadow-sm h-100">
+          <img src="images/petrus.jpeg" class="card-img-top" alt="Ministério PETRUS">
+          <div class="card-body">
+            <h5 class="card-title">PETRUS</h5>
+            <p class="card-text">Aqui, os adolescentes são incentivados a desenvolver um relacionamento 
+              pessoal com Deus, firmados na Palavra, vivendo valores cristãos e 
+              sendo preparados para enfrentar os desafios desta geração com fé e propósito.
+              Através de encontros, comunhão e discipulado, cremos que Deus está formando uma geração forte, 
+              comprometida com o Reino e apaixonada por Jesus.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card shadow-sm h-100">
+          <img src="images/ump.jpeg" class="card-img-top" alt="Ministério UMP">
+          <div class="card-body">
+            <h5 class="card-title">UMP</h5>
+            <p class="card-text">Um ambiente de comunhão, crescimento espiritual e serviço ao Reino. 
+              Nosso propósito é formar jovens firmados em Cristo, apaixonados pela Palavra e 
+              comprometidos com uma vida de fé, santidade e missão.
+              Por meio de encontros, discipulados e momentos de comunhão, cremos que Deus 
+              está levantando uma geração de jovens relevantes, que vivem o evangelho de forma 
+              prática e impactam sua família, igreja e sociedade.</p>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="250">
+        <div class="card shadow-sm h-100">
+          <img src="images/agape.jpeg" class="card-img-top" alt="Ministério ÁGAPE">
+          <div class="card-body">
+            <h5 class="card-title">ÁGAPE</h5>
+            <p class="card-text">
+              É um espaço de cuidado, edificação e comunhão, onde mulheres são fortalecidas na fé, 
+              firmadas na Palavra e encorajadas a viver o propósito de Deus em todas as áreas da vida.
+              Por meio de encontros, oração e discipulado, cremos que Deus está formando mulheres 
+              virtuosas, cheias do Espírito, que impactam sua família, a igreja e a sociedade com amor, 
+              sabedoria e graça.</p>
+          </div>
+        </div>
+      </div>
+
+  <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="card shadow-sm h-100">
+          <img src="images/hp.jpeg" class="card-img-top" alt="Ministério HP">
+          <div class="card-body">
+            <h5 class="card-title">HP</h5>
+            <p class="card-text">
+              Tem como propósito fortalecer homens na fé, no caráter e no compromisso 
+              com Deus e com a família. Buscamos formar homens segundo o coração de Deus, 
+              firmados na Palavra, responsáveis em seus lares e atuantes na igreja e na sociedade.
+              Através de encontros, comunhão e discipulado, cremos que Deus levanta homens 
+              que lideram com amor, integridade e temor ao Senhor, sendo referência em sua geração.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="350">
+        <div class="card shadow-sm h-100">
+          <img src="images/adm.jpeg" class="card-img-top" alt="Ministério HP">
+          <div class="card-body">
+            <h5 class="card-title">Departamento Social</h5>
+            <p class="card-text">
+              Tem como missão expressar o amor de Cristo por meio do cuidado ao próximo. 
+              Atuamos no apoio a famílias e pessoas em situação de necessidade, 
+              promovendo solidariedade, acolhimento e dignidade, sempre guiados 
+              pelos princípios do evangelho.
+              Através de ações sociais, doações e apoio comunitário, cremos que a igreja é 
+              um instrumento de Deus para levar esperança, restauração e transformação 
+              àqueles que mais precisam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dízimos -->
+<section id="dizimos" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">Contribuição</h2>
+    <p data-aos="fade-up" data-aos-delay="100">Você pode contribuir com fé e generosidade.</p>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <p><strong>Pix:</strong> 33.661.501/0001-78</p>
+        <p><strong>Banco:</strong> Cora — Agência 1 — Conta 4439848-6</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Agenda -->
+<section id="agenda" class="py-5">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">Agenda</h2>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-8" data-aos="fade-up" data-aos-delay="200">
+        <ul class="list-group">
+          <li class="list-group-item">🗓️ <strong>Domingo - 19h30:</strong> Culto</li>
+          <li class="list-group-item">🗓️ <strong>Quinta - 19h30:</strong> Culto</li>
+          <li class="list-group-item">📍 <strong>Endereço:</strong> Estrada do Cascalho, 727 - Boiçucanga</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galeria de Fotos -->
+<section id="fotos" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">Galeria de Fotos</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      Veja alguns momentos especiais da IECP Boiçucanga.
+    </p>
+
+    <div id="carouselGaleria" class="carousel slide mt-4" data-bs-ride="carousel">
+
+      <!-- Indicadores -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="4"></button>
+        <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="5"></button>
+        <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="6"></button>
+        <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="7"></button>
+        <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="8"></button>
+      </div>
+
+      <!-- Slides -->
+      <div class="carousel-inner rounded shadow">
+
+        <div class="carousel-item active">
+          <img src="images/foto26.jpeg" class="d-block w-100" alt="Foto IECP Vila Sahy">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/foto27.jpeg" class="d-block w-100" alt="Foto IECP Vila Sahy">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/foto28.jpeg" class="d-block w-100" alt="Foto IECP Vila Sahy">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/foto29.jpeg" class="d-block w-100" alt="Foto IECP Vila Sahy">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/foto30.jpeg" class="d-block w-100" alt="Foto IECP Vila Sahy">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/foto31.jpeg" class="d-block w-100" alt="Foto IECP Vila Sahy">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/foto32.jpeg" class="d-block w-100" alt="Foto IECP Vila Sahy">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/foto33.jpeg" class="d-block w-100" alt="Foto IECP Vila Sahy">
+        </div>
+      </div>
+
+      <!-- Controles -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselGaleria" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselGaleria" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      
+      <!-- C 1 -->
+      <div class="col-md-3 mb-3">
+        <h6>&copy; 2025 IECP - Jesus Restaurando Vidas</h6>
+      </div>
+      
+      <!-- C 2 -->
+      <div class="col-md-3 mb-3">
+        <p class="mb-1">📍 Estrada do Cascalho, 727 - Boiçucanga</p>
+        <p class="mb-1">📍 R. Cordovil Moreira, 02 - Maresias</p>
+        <p class="mb-1">📍 Rua Luis Basílio dos Santos, 12 - Vila Sahy</p>
+      </div>
+      
+      <!-- C 3 -->
+      <div class="col-md-3 mb-3">
+        <p class="mb-1">
+          <a href="https://www.instagram.com/iecpboicucanga/" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20" alt="Instagram" style="vertical-align: middle; margin-right: 5px;">
+            @iecpboicucanga
+          </a>
+        </p>
+        <p class="mb-1">
+          <a href="https://www.instagram.com/iecpmaresias/" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20" alt="Instagram" style="vertical-align: middle; margin-right: 5px;">
+            @iecpmaresias
+          </a>
+        </p>
+        <p class="mb-1">
+          <a href="https://www.instagram.com/iecpvilasahy" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20" alt="Instagram" style="vertical-align: middle; margin-right: 5px;">
+            @iecpvilasahy
+          </a>
+        </p>
+      </div>
+      
+      <!-- C 4 -->
+      <div class="col-md-3 mb-3">
+        <p class="mb-0">
+          <a href="https://open.spotify.com/show/1NY5Q8tm2uaNWcuZq48OO2" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" width="20" alt="Spotify" style="vertical-align: middle; margin-right: 5px;">
+            Ouça no Spotify
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>

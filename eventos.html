@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IECP</title>
+  <meta name="description" content="IECP - Igreja Evangélica Cristã Presbiteriana. Jesus restaurando vidas. Cultos, ministérios, agenda, localização e mais.">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="images/iecp.jpg" type="image/jpeg">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #000;
+      color: white;
+      padding: 1rem 0;
+    }
+    .logo img {
+      max-height: 60px;
+    }
+    .btn-inicio {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-inicio:hover {
+      background-color: black;
+      color: white;
+    }
+    .fixed-inicio {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .hero {
+      height: 100vh;
+      background-image: url('images/tema2026.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 90%;
+      padding: 1rem;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    .hero h2 {
+      font-size: 1.5rem;
+    }
+    .rounded-circle {
+      object-fit: cover;
+    }
+    .carousel-inner img {
+      max-height: max-content;
+      object-fit: contain;
+      background-color: #000;
+    }
+
+    /* Estilo do botão hambúrguer branco */
+    .navbar-toggler {
+      border-color: black;
+    }
+
+    /*       border-color: white; /* borda branca */
+
+    .navbar-toggler-icon {
+      background-image: none; /* remove o ícone padrão */
+      position: relative;
+      width: 24px;
+      height: 18px;
+      display: inline-block;
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after,
+    .navbar-toggler-icon div {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 3px;
+      background-color: white; /* linhas brancas */
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    .navbar-toggler-icon::before {
+      top: 0;
+    }
+
+    .navbar-toggler-icon div {
+      top: 7.5px;
+    }
+
+    .navbar-toggler-icon::after {
+      bottom: 0;
+    }
+
+    /* FALE CONOSCO */
+    #fale-conosco { background: #000; color: #fff; }
+    .whatsapp-card {
+      background: #111;
+      border-radius: 12px;
+      padding: 30px;
+      transition: transform .3s;
+    }
+    .whatsapp-card:hover { transform: translateY(-5px); }
+    .whatsapp-btn {
+      background: #25D366;
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+    }
+    .whatsapp-btn:hover { background: #1ebe5d; color: #fff; }
+
+    footer { background: #111; color: #fff; }
+
+    /* EVENTOS */
+#eventos {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Card */
+.evento-card {
+  background-color: #111;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+/* Imagem */
+.evento-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
+
+/* Corpo */
+.evento-body {
+  padding: 22px;
+  text-align: left;
+}
+
+.evento-body h5 {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.evento-body p {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #ddd;
+}
+
+/* Destaque local */
+.evento-body p:last-child {
+  margin-top: 12px;
+  color: #bbb;
+}
+
+  </style>
+</head>
+<body id="top">
+
+<!-- Header -->
+<header>
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center logo">
+      <img src="images/iecp.jpg" alt="Logo IECP" class="me-2" style="max-height: 60px;">
+      <span class="fw-bold fs-5 text-white">IECP</span>
+    </div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+        <!-- Ano -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="index.html">Ano Profético</a>
+        </li>
+
+        <!-- Sobre -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="sobre.html">Sobre</a>
+        </li>
+
+        <!-- Pastores -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="pastoresDropdown" role="button" data-bs-toggle="dropdown">
+            Pastores
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#pastores">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#pastores">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#pastores">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Ministérios -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="ministeriosDropdown" role="button" data-bs-toggle="dropdown">
+            Ministérios
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#ministerios">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#ministerios">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#ministerios">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Dízimos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="dizimosDropdown" role="button" data-bs-toggle="dropdown">
+            Contribuição
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#dizimos">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#dizimos">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#dizimos">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Agenda -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="agendaDropdown" role="button" data-bs-toggle="dropdown">
+            Agenda
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#agenda">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#agenda">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#agenda">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Eventos -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="eventos.html">Eventos</a>
+        </li>
+
+        <!-- Fotos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="agendaDropdown" role="button" data-bs-toggle="dropdown">
+            Fotos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#fotos">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#fotos">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#fotos">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Fale Conosco -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="sobre.html">Fale Conosco</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  </nav>
+</header>
+
+<!-- Botão Início Fixo -->
+<a href="#top" class="btn-inicio fixed-inicio" aria-label="Voltar ao início">Início</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content" data-aos="fade-up">
+    <h1>Eventos IECP</h1>
+    <p>Confira nossas próximas programações</p>
+  </div>
+</section>
+
+
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      
+      <!-- C 1 -->
+      <div class="col-md-3 mb-3">
+        <h6>&copy; 2025 IECP - Jesus Restaurando Vidas</h6>
+      </div>
+      
+      <!-- C 2 -->
+      <div class="col-md-3 mb-3">
+        <p class="mb-1">📍 Estrada do Cascalho, 727 - Boiçucanga</p>
+        <p class="mb-1">📍 R. Cordovil Moreira, 02 - Maresias</p>
+        <p class="mb-1">📍 Rua Luis Basílio dos Santos, 12 - Vila Sahy</p>
+      </div>
+      
+      <!-- C 3 -->
+      <div class="col-md-3 mb-3">
+        <p class="mb-1">
+          <a href="https://www.instagram.com/iecpboicucanga/" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20" alt="Instagram" style="vertical-align: middle; margin-right: 5px;">
+            @iecpboicucanga
+          </a>
+        </p>
+        <p class="mb-1">
+          <a href="https://www.instagram.com/iecpmaresias/" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20" alt="Instagram" style="vertical-align: middle; margin-right: 5px;">
+            @iecpmaresias
+          </a>
+        </p>
+        <p class="mb-1">
+          <a href="https://www.instagram.com/iecpvilasahy" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20" alt="Instagram" style="vertical-align: middle; margin-right: 5px;">
+            @iecpvilasahy
+          </a>
+        </p>
+      </div>
+      
+      <!-- C 4 -->
+      <div class="col-md-3 mb-3">
+        <p class="mb-0">
+          <a href="https://open.spotify.com/show/1NY5Q8tm2uaNWcuZq48OO2" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" width="20" alt="Spotify" style="vertical-align: middle; margin-right: 5px;">
+            Ouça no Spotify
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+
+  AOS.init();
+</script>
+</body>
+</html>

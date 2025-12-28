@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IECP</title>
+  <meta name="description" content="IECP - Igreja Evangélica Cristã Presbiteriana. Jesus restaurando vidas. Cultos, ministérios, agenda, localização e mais.">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="images/iecp.jpg" type="image/jpeg">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #000;
+      color: white;
+      padding: 1rem 0;
+    }
+    .logo img {
+      max-height: 60px;
+    }
+    .btn-inicio {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-inicio:hover {
+      background-color: black;
+      color: white;
+    }
+    .fixed-inicio {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .hero {
+      height: 100vh;
+      background-image: url('images/tema2026.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 90%;
+      padding: 1rem;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    .hero h2 {
+      font-size: 1.5rem;
+    }
+    .rounded-circle {
+      object-fit: cover;
+    }
+    .carousel-inner img {
+      max-height: max-content;
+      object-fit: contain;
+      background-color: #000;
+    }
+
+    /* Estilo do botão hambúrguer branco */
+    .navbar-toggler {
+      border-color: black;
+    }
+
+    /*       border-color: white; /* borda branca */
+
+    .navbar-toggler-icon {
+      background-image: none; /* remove o ícone padrão */
+      position: relative;
+      width: 24px;
+      height: 18px;
+      display: inline-block;
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after,
+    .navbar-toggler-icon div {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 3px;
+      background-color: white; /* linhas brancas */
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    .navbar-toggler-icon::before {
+      top: 0;
+    }
+
+    .navbar-toggler-icon div {
+      top: 7.5px;
+    }
+
+    .navbar-toggler-icon::after {
+      bottom: 0;
+    }
+
+    /* FALE CONOSCO */
+    #fale-conosco { background: #000; color: #fff; }
+    .whatsapp-card {
+      background: #111;
+      border-radius: 12px;
+      padding: 30px;
+      transition: transform .3s;
+    }
+    .whatsapp-card:hover { transform: translateY(-5px); }
+    .whatsapp-btn {
+      background: #25D366;
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+    }
+    .whatsapp-btn:hover { background: #1ebe5d; color: #fff; }
+
+    footer { background: #111; color: #fff; }
+
+    /* EVENTOS */
+#eventos {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Card */
+.evento-card {
+  background-color: #111;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+/* Imagem */
+.evento-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
+
+/* Corpo */
+.evento-body {
+  padding: 22px;
+  text-align: left;
+}
+
+.evento-body h5 {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.evento-body p {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #ddd;
+}
+
+/* Destaque local */
+.evento-body p:last-child {
+  margin-top: 12px;
+  color: #bbb;
+}
+
+/* ANO PROFÉTICO - CARDS */
+#ano-profetico {
+  background: #fff
+  color: #9f5934;
+}
+
+.card-profetico {
+  background: #111;
+  border-radius: 16px;
+  padding: 35px;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-profetico:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.65);
+}
+
+.card-profetico h2,
+.card-profetico h4 {
+  font-weight: 700;
+  color: white;
+}
+
+.card-profetico p {
+  color: #ddd;
+  margin-bottom: 0;
+}
+
+/* Versículo */
+.versiculo {
+  margin-top: 20px;
+  padding-left: 15px;
+  border-left: 4px solid #25D366;
+  color: #ccc;
+  font-style: italic;
+}
+
+  </style>
+</head>
+<body id="top">
+
+<!-- Header -->
+<header>
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center logo">
+      <img src="images/iecp.jpg" alt="Logo IECP" class="me-2" style="max-height: 60px;">
+      <span class="fw-bold fs-5 text-white">IECP</span>
+    </div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+        <!-- Ano -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="index.html">Ano Profético</a>
+        </li>
+
+        <!-- Sobre -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="sobre.html">Sobre</a>
+        </li>
+
+        <!-- Pastores -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="pastoresDropdown" role="button" data-bs-toggle="dropdown">
+            Pastores
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#pastores">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#pastores">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#pastores">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Ministérios -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="ministeriosDropdown" role="button" data-bs-toggle="dropdown">
+            Ministérios
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#ministerios">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#ministerios">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#ministerios">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Dízimos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="dizimosDropdown" role="button" data-bs-toggle="dropdown">
+            Contribuição
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#dizimos">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#dizimos">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#dizimos">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Agenda -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="agendaDropdown" role="button" data-bs-toggle="dropdown">
+            Agenda
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#agenda">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#agenda">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#agenda">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Eventos -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="eventos.html">Eventos</a>
+        </li>
+
+        <!-- Fotos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="agendaDropdown" role="button" data-bs-toggle="dropdown">
+            Fotos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark bg-black">
+            <li><a class="dropdown-item text-white" href="maresias.html#fotos">Maresias</a></li>
+            <li><a class="dropdown-item text-white" href="boicucanga.html#fotos">Boiçucanga</a></li>
+            <li><a class="dropdown-item text-white" href="vilasahy.html#fotos">Vila Sahy</a></li>
+          </ul>
+        </li>
+
+        <!-- Fale Conosco -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="sobre.html">Fale Conosco</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  </nav>
+</header>
+
+<!-- Botão Início Fixo -->
+<a href="#top" class="btn-inicio fixed-inicio" aria-label="Voltar ao início">Início</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content" data-aos="fade-up">
+    <h1>Ano Profético 2026</h1>
+    <h4>É Ano De Edificar e Consolidar</h4>
+  </div>
+</section>
+
+<section id="ano-profetico" class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8" data-aos="fade-up">
+        <div class="card-profetico text-center">
+          <h2 class="mb-4">Palavra Profética</h2>
+          <p>
+            Edificar e Consolidar são processos que caminham juntos na vida cristã. 
+            Edificar refere-se ao ato de construir, levantar e desenvolver algo com base firme; 
+            consolidar diz respeito a fortalecer, confirmar e dar estabilidade ao que foi edificado. 
+            Ambos apontam para uma fé que não é superficial, mas profunda, madura e perseverante.
+            A Escritura nos ensina que toda verdadeira edificação começa em Cristo. 
+            Ele é o fundamento seguro sobre o qual a vida do cristão deve ser construída:
+          </p>
+
+          <div class="versiculo">
+            “Porque ninguém pode lançar outro fundamento, além do que já está posto, o qual é Jesus Cristo.”<br>
+            <strong>1 Coríntios 3:11</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="ano-profetico" class="py-5">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card-profetico text-center">
+          <h4 class="mb-3">📖 EDIFICAR</h4>
+          <p>
+            Edificar, portanto, é crescer em conhecimento, fé e obediência à Palavra. 
+            É permitir que Deus molde o caráter, transforme atitudes e alinhe o coração à Sua vontade. 
+            Jesus ilustra essa verdade ao comparar o homem prudente àquele que constrói sua casa 
+            sobre a rocha, permanecendo firme mesmo diante das tempestades (Mateus 7:24–25).
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-profetico text-center">
+          <h4 class="mb-3">🌱 CONSOLIDAR</h4>
+          <p>
+            Consolidar é o passo seguinte: é firmar o que foi construído, para que não seja abalado. 
+            A Bíblia nos exorta a sermos enraizados, edificados e confirmados na fé, para não sermos 
+            levados por doutrinas ou circunstâncias (Colossenses 2:6–7). 
+            A consolidação acontece quando o cristão persevera na Palavra, na comunhão, na oração 
+            e na prática do amor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="ano-profetico" class="py-5">
+  <div class="container text-center">
+    <div class="row justify-content-center">
+      <div class="col-md-8" data-aos="fade-up">
+        <div class="card-profetico">
+          <h2 class="mb-3">Viva o Ano Profético</h2>
+          <p>
+            Edificar e Consolidar é viver uma fé construída sobre Cristo, 
+            fortalecida pela Palavra e sustentada pela comunhão. É crescer com profundidade, 
+            permanecer com firmeza e produzir frutos que glorifiquem a Deus.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-black">
+  <div class="container">
+    <div class="row justify-content-center g-4">
+
+      <!-- Imagem 1 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card border-0 bg-transparent">
+          <img src="images/ano2.jpg" class="img-fluid rounded-4" alt="Ano Profético - Edificar">
+        </div>
+      </div>
+
+      <!-- Imagem 2 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card border-0 bg-transparent">
+          <img src="images/ano1.jpg" class="img-fluid rounded-4" alt="Ano Profético - Consolidar">
+        </div>
+      </div>
+
+      <!-- Imagem 3 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card border-0 bg-transparent">
+          <img src="images/ano3.jpg" class="img-fluid rounded-4" alt="Ano Profético - Multiplicação">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      
+      <!-- C 1 -->
+      <div class="col-md-3 mb-3">
+        <h6>&copy; 2025 IECP - Jesus Restaurando Vidas</h6>
+      </div>
+      
+      <!-- C 2 -->
+      <div class="col-md-3 mb-3">
+        <p class="mb-1">📍 Estrada do Cascalho, 727 - Boiçucanga</p>
+        <p class="mb-1">📍 R. Cordovil Moreira, 02 - Maresias</p>
+        <p class="mb-1">📍 Rua Luis Basílio dos Santos, 12 - Vila Sahy</p>
+      </div>
+      
+      <!-- C 3 -->
+      <div class="col-md-3 mb-3">
+        <p class="mb-1">
+          <a href="https://www.instagram.com/iecpboicucanga/" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20" alt="Instagram" style="vertical-align: middle; margin-right: 5px;">
+            @iecpboicucanga
+          </a>
+        </p>
+        <p class="mb-1">
+          <a href="https://www.instagram.com/iecpmaresias/" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20" alt="Instagram" style="vertical-align: middle; margin-right: 5px;">
+            @iecpmaresias
+          </a>
+        </p>
+        <p class="mb-1">
+          <a href="https://www.instagram.com/iecpvilasahy" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="20" alt="Instagram" style="vertical-align: middle; margin-right: 5px;">
+            @iecpvilasahy
+          </a>
+        </p>
+      </div>
+      
+      <!-- C 4 -->
+      <div class="col-md-3 mb-3">
+        <p class="mb-0">
+          <a href="https://open.spotify.com/show/1NY5Q8tm2uaNWcuZq48OO2" target="_blank" class="text-white text-decoration-none">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" width="20" alt="Spotify" style="vertical-align: middle; margin-right: 5px;">
+            Ouça no Spotify
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+
+  AOS.init();
+</script>
+</body>
+</html>
